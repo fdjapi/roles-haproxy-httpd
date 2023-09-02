@@ -1,15 +1,15 @@
 ---
 # tasks file for myapache
 #
-#
 - name: "Installing Apache Software"
-  package:
-     name: "{{ software_name }}"
+  dnf:
+    name: "{{ software_name }}"
+    state: present
 
 - name: "Copying Webpages.."
   copy:
-     src: "/root/myapache/files/my.php"
-     dest: "/var/www/html"
+     src: "/etc/ansible/roles/myapache/files/index.html"
+     dest: "/var/www/html/"
   notify: "Restart Services"
 
 - name: "Starting Service"
