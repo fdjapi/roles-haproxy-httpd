@@ -1,14 +1,14 @@
 ---
 # tasks file for myloadbalancer
 #
-#
-- name: "Installing {{ software_name }}"
-  package: 
-     name: "{{ software_name }}"
+- name: "Installing Apache Software"
+  dnf:
+    name: "{{ software_name }}"
+    state: present
 
 - name: "Configuration File"
   template:
-     src: "/root/myloadbalancer/templates/haproxy.cfg.j2"
+     src: "/etc/ansible/roles/myloadbalancer/templates/haproxy.cfg.j2"
      dest: "/etc/haproxy/haproxy.cfg"
   notify: "Restart Services"
 
