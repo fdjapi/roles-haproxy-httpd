@@ -1,7 +1,7 @@
 - hosts: servers
   roles:
-      - role: /root/myapache
+      - role: /etc/ansible/roles/myapache
 
 - hosts: load_balancer
   roles: 
-      - role: /root/myloadbalancer
+      - role: /etc/ansible/roles/myloadbalancer
